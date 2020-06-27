@@ -9,12 +9,14 @@ let jobsContent = {
   city: [''],
   salary: [''],
   link: [''],
-  date: ['']
+  date: [''],
+  summray : ['']
 }
 let port = process.env.PORT || 3000 ;
 let jobsContentBulkFormat = [''];
 let location = [''];
 let times = [''];
+let summrays = [''];
 let $;
 let globlres;
 app.set("port",port);
@@ -52,6 +54,8 @@ function getJobs(url) {
       jobsContentBulkFormat = $("a.jobtitle"); // get all jobs
       location = $("span.location"); // get all location
       times = $("span.date"); // get all dates 
+      summrays = $(".summary");
+      
       addData();
     
       
@@ -73,7 +77,7 @@ function addData(){
     jobsContent.Title[i] = $(jobsContentBulkFormat[i]).attr("title");
     jobsContent.city[i] = $(location[i]).text();
     jobsContent.date[i] = $(times[i]).text();
-   
+    jobsContent.summray[i] = $(summrays[i]).text();
   }
   globlres.json(jobsContent);
 }
