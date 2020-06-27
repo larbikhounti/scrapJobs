@@ -29,10 +29,10 @@ app.get('/jobs/:job?/:city?', function (req, res) {
 //mainpage
 app.get('/', function (req, res) {
   
-  
+  res.json("here we go");
 })
 
-app.listen(3000 || process.env.PORT );
+app.listen(process.env.PORT || process.env.PORT );
 
 function getJobs(url) {
 
