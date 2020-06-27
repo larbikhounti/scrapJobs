@@ -27,11 +27,6 @@ app.get('/jobs/:job?/:city?', function (req, res) {
 }) // end of get the jobs route
 
 
-//mainpage
-app.get('/', function (req, res) {
-  
-  res.json("here we go");
-})
 
 app.listen(port);
 
