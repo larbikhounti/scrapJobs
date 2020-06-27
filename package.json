@@ -1,0 +1,19 @@
+{
+  "name": "jobs",
+  "version": "1.0.0",
+  "description": "scrapingJobs",
+
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "mohamedKhounti",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.4",
+    "request": "^2.88.2",
+    "require": "^2.4.20"
+  }
+}
