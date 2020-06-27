@@ -17,6 +17,7 @@ let location = [''];
 let times = [''];
 let $;
 let globlres;
+let port = process.env.PORT || 3000;
 //get the jobs
 app.get('/jobs/:job?/:city?', function (req, res) {
   let url = "https://ma.indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "";
@@ -32,7 +33,7 @@ app.get('/', function (req, res) {
   res.json("here we go");
 })
 
-app.listen(process.env.PORT || process.env.PORT );
+app.listen(port);
 
 function getJobs(url) {
 
