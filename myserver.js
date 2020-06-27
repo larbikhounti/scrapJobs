@@ -34,7 +34,7 @@ app.get('/jobs/:job?/:city?', function (req, res) {
 
 //get the jobs
 app.get('/', function (req, res) {
-  res.json("working")
+  res.sendfile('./welcome/welcome.html');
 }) // end of get the jobs route
 
 
@@ -79,5 +79,8 @@ function addData(){
     jobsContent.date[i] = $(times[i]).text();
     jobsContent.summray[i] = $(summrays[i]).text();
   }
+
   globlres.json(jobsContent);
+
+
 }
