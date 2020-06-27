@@ -11,12 +11,16 @@ let jobsContent = {
   link: [''],
   date: ['']
 }
-
+let port = process.env.PORT || 3000 ;
 let jobsContentBulkFormat = [''];
 let location = [''];
 let times = [''];
 let $;
 let globlres;
+app.set("port",port);
+app.listen(port, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 //get the jobs
 app.get('/jobs/:job?/:city?', function (req, res) {
@@ -32,9 +36,7 @@ app.get('/', function (req, res) {
 }) // end of get the jobs route
 
 
-app.listen(process.env.PORT || 3000, function(){
-  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
-});
+
 
 function getJobs(url) {
 
