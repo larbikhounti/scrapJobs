@@ -17,7 +17,7 @@ let location = [''];
 let times = [''];
 let $;
 let globlres;
-let port = process.env.PORT || 3000;
+
 //get the jobs
 app.get('/jobs/:job?/:city?', function (req, res) {
   let url = "https://ma.indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "";
@@ -28,7 +28,9 @@ app.get('/jobs/:job?/:city?', function (req, res) {
 
 
 
-app.listen(port);
+app.listen(process.env.PORT || 3000, function(){
+  console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
+});
 
 function getJobs(url) {
 
@@ -39,7 +41,7 @@ function getJobs(url) {
     //console.log('body:', body); // Print the HTML for the Google homepage.
     if (response.statusCode == 200 && body != null) {
        $ = cheerio.load(body);
-      console.log($);
+    
       // store all a links
       jobsContentBulkFormat = $("a.jobtitle"); // get all jobs
       location = $("span.location"); // get all location
