@@ -26,6 +26,10 @@ app.get('/jobs/:job?/:city?', function (req, res) {
 
 }) // end of get the jobs route
 
+//get the jobs
+app.get('/', function (req, res) {
+  res.json("working")
+}) // end of get the jobs route
 
 
 app.listen(process.env.PORT || 3000, function(){
