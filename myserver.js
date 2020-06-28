@@ -1,6 +1,7 @@
 const request = require('request');
 const cheerio = require("cheerio");
 const express = require('express');
+const cors = require('cors');
 const app = express();
 
 let jobsContent = {
@@ -19,6 +20,7 @@ let times = [''];
 let summrays = [''];
 let $;
 let globlres;
+app.use(cors());
 app.set("port",port);
 app.listen(port, function(){
   console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
@@ -26,7 +28,7 @@ app.listen(port, function(){
 
 //get the jobs
 app.get('/jobs/:job?/:city?', function (req, res) {
-  let url = "https://ma.indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "";
+  let url = "https://ma.indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "&limit=20";
   getJobs(url);
  globlres =  res;
 
@@ -79,6 +81,7 @@ function addData(){
     jobsContent.date[i] = $(times[i]).text();
     jobsContent.summray[i] = $(summrays[i]).text();
   }
+  globlres.set({ 'content-type': 'application/json; charset=utf-8' });
 
   globlres.json(jobsContent);
 
