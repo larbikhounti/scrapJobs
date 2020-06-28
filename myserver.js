@@ -11,7 +11,7 @@ let jobsContent = {
   salary: [''],
   link: [''],
   date: [''],
-  summray : ['']
+  summary : ['']
 }
 let port = process.env.PORT || 3000 ;
 let jobsContentBulkFormat = [''];
@@ -79,7 +79,7 @@ function addData(){
     jobsContent.Title[i] = $(jobsContentBulkFormat[i]).attr("title");
     jobsContent.city[i] = $(location[i]).text();
     jobsContent.date[i] = $(times[i]).text();
-    jobsContent.summray[i] = $(summrays[i]).text();
+    jobsContent.summary[i] = $(summrays[i]).text();
   }
   globlres.set({ 'content-type': 'application/json; charset=utf-8' });
 
