@@ -84,6 +84,6 @@ function addData(){
   globlres.set({ 'content-type': 'application/json; charset=utf-8' });
 
   globlres.json(jobsContent);
-
+ globlres.end();
 
 }
