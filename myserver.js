@@ -63,7 +63,7 @@ app.post('/details/', function (req, res) {
 
 function getJobs(url) {
 
-  request("url", function (error, response, body) {
+  request(url, function (error, response, body) {
 
     console.error('error:', error); // Print the error if one occurred
     console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
@@ -113,8 +113,8 @@ function getJobDetails(url) {
   
   request(url, function (error, response, body) {
     
-    console.error('error:', error); // Print the error if one occurred
-    console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
+    //console.error('error:', error); // Print the error if one occurred
+ //   console.log('statusCode:', response.statusCode); // Print the response status code if a response was received
     //console.log('body:', body); // Print the HTML for the Google homepage.
     if (response.statusCode == 200 && body != null) {
       $2 = cheerio.load(body);
