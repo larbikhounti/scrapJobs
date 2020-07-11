@@ -40,8 +40,8 @@ app.listen(port, function () {
 });
 
 //get the jobs
-app.get('/jobs/:job?/:city?', function (req, res) {
-  let url = "https://ma.indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "&limit=20";
+app.get('/jobs/:county/:job?/:city?', function (req, res) {
+  let url = "https://"+req.params.county+".indeed.com/emplois?q=" + req.params.job + "&l=" + req.params.city + "&limit=20";
   getJobs(url);
   globlres = res;
 
